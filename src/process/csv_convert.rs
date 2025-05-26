@@ -1,8 +1,8 @@
+use crate::cli::OutputFormat;
 use anyhow::Result;
 use csv::Reader;
 use serde::{Deserialize, Serialize};
 use std::fs;
-use crate::cli::OutputFormat;
 
 #[derive(Debug, Deserialize, Serialize)]
 #[serde(rename_all = "PascalCase")]
@@ -25,7 +25,10 @@ pub fn process_csv(input: &str, output: String, format: OutputFormat) -> Result<
         // headers.iter() -> 使用 headers 的迭代器
         // zip(record.iter()) -> 将 headers 的迭代器和 record 的迭代器配对
         // collect::<Value>() -> 将配对的迭代器收集到一个 Value 中
-        let json_value = headers.iter().zip(record.iter()).collect::<serde_json::Value>();
+        let json_value = headers
+            .iter()
+            .zip(record.iter())
+            .collect::<serde_json::Value>();
         ret.push(json_value);
     }
 
