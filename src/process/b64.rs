@@ -47,7 +47,7 @@ mod tests {
 
     #[test]
     fn test_process_decode() -> Result<()> {
-        let input = "fixtures/b64.txt";
+        let input = r"D:\Study\web3\Rust\code\rcli\fixtures\b64.txt";
         let mut reader = get_reader(input)?;
         let format = Base64Format::UrlSafe;
         process_decode(&mut reader, format)?;
