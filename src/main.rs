@@ -1,6 +1,10 @@
 use base64::{Engine, engine::general_purpose::URL_SAFE_NO_PAD};
 use clap::Parser;
-use rcli::{Base64SubCommand, Opts, SubCommand, TextSubCommand, get_content, get_reader, process_csv, process_decode, process_encode, process_genpass, process_text_key_generate, process_text_sign, process_text_verify, HttpSubCommand, process_http_serve};
+use rcli::{
+    Base64SubCommand, HttpSubCommand, Opts, SubCommand, TextSubCommand, get_content, get_reader,
+    process_csv, process_decode, process_encode, process_genpass, process_http_serve,
+    process_text_key_generate, process_text_sign, process_text_verify,
+};
 use std::fs;
 use zxcvbn::zxcvbn;
 
